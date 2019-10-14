@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Domain.Interfaces.IServices;
+using System.Drawing;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication1.Controllers
 {
@@ -16,8 +18,11 @@ namespace WebApplication1.Controllers
 
         // POST api/Bio
         [HttpPost]
-        public void Post()
-        {   
+        public void Post(IFormFile file)
+        {
+            Image img = Image.FromStream(file.OpenReadStream());
+
+            _convertImageToByteArray.ConvertImage(img);
         }
 
     }

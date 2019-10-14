@@ -6,16 +6,16 @@ namespace Services
 {
     public class ConvertImageToByteArray : IConvertImageToByteArray
     {
-        private static IImageRepository _convertImageToByteArray;
+        private static IImageRepository _imageRepository;
 
         public ConvertImageToByteArray(IImageRepository convertImageToByteArray)
         {
-            _convertImageToByteArray = convertImageToByteArray;
+            _imageRepository = convertImageToByteArray;
         }
 
         public void ConvertImage(Image img)
-        {            
-            _convertImageToByteArray.ImageByteHandler(img);
+        {
+            _imageRepository.ImageByteHandler(img);
         }
     }
 }
