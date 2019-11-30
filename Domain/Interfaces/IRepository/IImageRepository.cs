@@ -1,9 +1,13 @@
-﻿using System.Drawing;
+﻿using Domain.Entities;
+using System.Drawing;
 
 namespace Domain.Interfaces.IRepository
 {
     public interface IImageRepository
     {
-        void ImageByteHandler(Image img);
+        void ImageByteHandler(ImageEntity imageEntity);
+        void TurnToGrayscale(Bitmap image);
+        object CompareTwoImages(ImageEntity imageEntity);
+        string CompareResult(Color firstImage, Color secondImage);
     }
 }

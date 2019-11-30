@@ -1,21 +1,23 @@
-﻿using Domain.Interfaces.IRepository;
+﻿using Domain.Entities;
+using Domain.Interfaces.IRepository;
 using Domain.Interfaces.IServices;
-using System.Drawing;
 
 namespace Services
 {
     public class ConvertImageToByteArray : IConvertImageToByteArray
     {
-        private static IImageRepository _convertImageToByteArray;
+        private static IImageRepository _imageRepository;
 
         public ConvertImageToByteArray(IImageRepository convertImageToByteArray)
         {
-            _convertImageToByteArray = convertImageToByteArray;
+            _imageRepository = convertImageToByteArray;
         }
 
-        public void ConvertImage(Image img)
+        public object ConvertImage(ImageEntity imageEntity)
         {            
-            _convertImageToByteArray.ImageByteHandler(img);
+            _imageRepository.ImageByteHandler(imageEntity);
+
+            return _imageRepository.CompareTwoImages(imageEntity);
         }
     }
 }
