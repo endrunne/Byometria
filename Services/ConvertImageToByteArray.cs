@@ -1,6 +1,6 @@
-﻿using Domain.Interfaces.IRepository;
+﻿using Domain.Entities;
+using Domain.Interfaces.IRepository;
 using Domain.Interfaces.IServices;
-using System.Drawing;
 
 namespace Services
 {
@@ -13,9 +13,11 @@ namespace Services
             _imageRepository = convertImageToByteArray;
         }
 
-        public void ConvertImage(Image img)
-        {
-            _imageRepository.ImageByteHandler(img);
+        public object ConvertImage(ImageEntity imageEntity)
+        {            
+            _imageRepository.ImageByteHandler(imageEntity);
+
+            return _imageRepository.CompareTwoImages(imageEntity);
         }
     }
 }

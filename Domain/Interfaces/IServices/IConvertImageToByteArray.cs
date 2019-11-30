@@ -1,9 +1,9 @@
-﻿using System.Drawing;
+﻿using Domain.Entities;
 
 namespace Domain.Interfaces.IServices
 {
     public interface IConvertImageToByteArray
     {
-        void ConvertImage(Image img);
+        object ConvertImage(ImageEntity imageEntity);
     }
 }
